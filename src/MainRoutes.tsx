@@ -1,21 +1,21 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Signup from "./ClientFolder/form/Signup";
-import Login from "./ClientFolder/form/Login";
-import DashBoard from "./AdminFolder/AdminPage/Dashboard";
-import Home from "./ClientFolder/ClientPages/Home";
-import ResetPassword from "./ClientFolder/ClientPages/ResetPassword";
-import ForgotPassword from "./ClientFolder/ClientPages/ForgotPassword";
-import BackHome from "./ClientFolder/ClientPages/BackHome";
-import Chart from "./ClientFolder/ClientPages/Chart";
-import Contact from "./ClientFolder/ClientPages/Contact";
-import About from "./ClientFolder/ClientPages/About";
-import AdminHome from "./AdminFolder/AdminPage/AdminHome";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AdminAddBook from "./AdminFolder/AdminPage/AdminAddBook";
 import AdminBooks from "./AdminFolder/AdminPage/AdminBooks";
-import Book from "./ClientFolder/ClientPages/Book";
 import AdminBooksComment from "./AdminFolder/AdminPage/AdminBooksComment";
 import AdminContact from "./AdminFolder/AdminPage/AdminContact";
 import AdminContactUser from "./AdminFolder/AdminPage/AdminContactUser";
-import AdminAddBook from "./AdminFolder/AdminPage/AdminAddBook";
+import AdminHome from "./AdminFolder/AdminPage/AdminHome";
+import DashBoard from "./AdminFolder/AdminPage/Dashboard";
+import About from "./ClientFolder/ClientPages/About";
+import BackHome from "./ClientFolder/ClientPages/BackHome";
+import Book from "./ClientFolder/ClientPages/Book";
+import Chart from "./ClientFolder/ClientPages/Chart";
+import Contact from "./ClientFolder/ClientPages/Contact";
+import ForgotPassword from "./ClientFolder/ClientPages/ForgotPassword";
+import Home from "./ClientFolder/ClientPages/Home";
+import ResetPassword from "./ClientFolder/ClientPages/ResetPassword";
+import Login from "./ClientFolder/form/Login";
+import Signup from "./ClientFolder/form/Signup";
 const MainRoutes = () => {
   return (
     <>
@@ -27,7 +27,7 @@ const MainRoutes = () => {
           <Route path="/home/:id" element={<Home />} />
           <Route path="/resetpassword/:id" element={<ResetPassword />} />
           <Route path="/forgot" element={<ForgotPassword />} />
-          <Route path="/home/backhome" element={<BackHome email={""} />} />
+          <Route path="/home/backhome" element={<BackHome />} />
           <Route path="/home/chart/:id" element={<Chart />} />
           <Route path="/home/contact/:id" element={<Contact />} />
           <Route path="/home/About/:id" element={<About />} />

@@ -1,11 +1,10 @@
-import { Chart as ChartJS, defaults } from "chart.js/auto";
+import { defaults } from "chart.js/auto";
 
-import { useState, useEffect } from "react";
-import { Bar } from "react-chartjs-2";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { Bar } from "react-chartjs-2";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
 defaults.maintainAspectRatio = false;
 defaults.responsive = true;
 defaults.plugins.title.display = true;
@@ -25,16 +24,8 @@ interface Item {
   updatedAt: string;
 }
 
-interface Comment {
-  userid: string;
-  _id: string;
-  comment: string;
-  email: string;
-}
-
 const DashBoard = () => {
   const [data, setData] = useState<Item[]>([]);
-  const [comment, setComment] = useState<Comment[]>([]);
   const [message, setMessage] = useState<any[]>([]);
 
   const fetchMessage = async () => {
@@ -93,20 +84,6 @@ const DashBoard = () => {
       console.log(err);
     }
   };
-
-  useEffect(() => {
-    axios
-      .get(
-        `http://localhost:3000/commentRoutes/65d75d361141084402c8d175/comment`,
-        {}
-      )
-      .then((res) => {
-        setComment(res.data);
-      })
-      .catch((err: any) => {
-        console.log(err);
-      });
-  });
 
   const getValueFromUnique = (uniqueObject: any) => {
     console.log(uniqueObject);

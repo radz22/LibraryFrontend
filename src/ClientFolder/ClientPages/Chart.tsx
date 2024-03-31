@@ -1,9 +1,9 @@
-import { Chart as ChartJS, defaults } from "chart.js/auto";
+import { defaults } from "chart.js/auto";
 
-import { useState, useEffect } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import SideBar from "../Components/SideBar";
-import axios from "axios";
 
 defaults.maintainAspectRatio = false;
 defaults.responsive = true;

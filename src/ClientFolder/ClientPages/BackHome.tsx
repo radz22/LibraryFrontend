@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-interface Props {
-  email: string;
-}
 interface Item {
   image: string;
   title: string;
@@ -15,7 +12,7 @@ interface Item {
   expired?: boolean;
   count?: number;
 }
-const BackHome: React.FC<Props> = ({ email }) => {
+const BackHome = () => {
   const [data, setData] = useState<Item[]>([]);
 
   const fetchData = async () => {
@@ -38,35 +35,6 @@ const BackHome: React.FC<Props> = ({ email }) => {
       fetchData();
     }, 1000);
   }, []);
-
-  const handleBook = async (id: any) => {
-    try {
-      await axios
-        .put(
-          `https://librarybackend-vklf.onrender.com/booksRoutes/expired/${id}`,
-          {
-            email: email,
-          }
-        )
-        .then(() => {
-          toast.success("Sucess");
-        })
-        .catch(() => {
-          toast.error("error");
-        });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const handleInvalid = (id: any) => {
-    const datas = data.map((item: any) => {
-      if (item._id == id) {
-        toast.error("not available back later");
-      }
-    });
-    return datas;
-  };
 
   return (
     <div className=" px-4 mb-5 mt-5 ">

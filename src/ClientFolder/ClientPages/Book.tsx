@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import SideBar from "../Components/SideBar";
 
 interface Item {
   _id: string;

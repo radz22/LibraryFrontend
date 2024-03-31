@@ -1,15 +1,13 @@
-import { useState, useEffect } from "react";
+import axios from "axios";
+import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import SideBarAdmin from "../AdminComponents/SideBar";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const AdminAddBook = () => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [author, setAuthor] = useState<string>("");
   const [base64Image, setBase64Image] = useState<string>("");
-  const navigate = useNavigate();
   const handleFileInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
