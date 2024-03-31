@@ -11,25 +11,17 @@ const ResetPassword = () => {
 
   const handleReset = async () => {
     try {
-      await axios
-        .put(
-          `https://librarybackend-vklf.onrender.com/userRoutes/reset_password/${id}`,
-          {
-            password: password,
-          }
-        )
-
-        .then((res) => {
-          toast.success("sucess!!");
-          if (res.data.msg == "sucess updated") {
-            setTimeout(() => {
-              navigate("/");
-            }, 4000);
-          }
-        })
-        .catch(() => {
-          toast.error("error!!");
-        });
+      const response = await axios.put(
+        `https://librarybackend-vklf.onrender.com/userRoutes/reset_password/${id}`,
+        { password: password }
+      );
+      const data = response.data;
+      if (data.msg == "sucess updated") {
+        toast.success("sucess!!");
+        setTimeout(() => {
+          navigate("/");
+        }, 4000);
+      }
     } catch {
       toast.error("error!!");
     }

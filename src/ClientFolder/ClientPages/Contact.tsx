@@ -54,7 +54,6 @@ const Contact = () => {
             clientmesssage: sendMessage,
           }
         );
-        toast.success("sending");
       } catch {
         toast.error("erorr");
       }
